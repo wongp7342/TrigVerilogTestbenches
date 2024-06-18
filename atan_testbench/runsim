@@ -1,0 +1,38 @@
+#!/bin/csh -f
+################################################################################
+# simulation top script
+# change modelsim in this file dir and run "do this_file.do"
+# project dir ---+---> hdl source dir
+#                +---> sim script dir
+#
+################################################################################
+
+# check if current dir has modelsim config file
+set has_config  [file exists modelsim.do]
+# config modelsim 
+if {$has_config==1} { do modelsim.do  ; }
+
+echo "+====================================="
+echo "| Creat Lib Work soc                  "
+echo "+====================================="
+vlib work
+vmap work work 
+
+echo "+====================================="
+echo "| Complile RTL Code of soc            "
+echo "+====================================="
+vlog -sv ./dut/*.v ./tb/*.v
+
+echo "+====================================="
+echo "| Compiler Pass                       "
+echo "| Being to Run Simulation             "
+echo "+====================================="
+vsim work.example_sim -t 1us
+
+###################################### mus  ####################################
+add wave -noupdate -format logic -radix decimal example_sim/clockcount_
+add wave -noupdate -format logic -radix hexadecimal example_sim/clock_
+add wave -noupdate -format logic -radix hexadecimal example_sim/reset_
+add wave -noupdate -format logic -radix float32 example_sim/atandut/*
+add wave -noupdate -format logic -radix hexadecimal example_sim/atandut/vcordic/*
+run 1200us
