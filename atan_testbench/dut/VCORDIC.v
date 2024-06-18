@@ -23,6 +23,9 @@ module VCORDIC(
   reg [63:0] _RAND_15;
   reg [63:0] _RAND_16;
   reg [63:0] _RAND_17;
+  reg [63:0] _RAND_18;
+  reg [63:0] _RAND_19;
+  reg [63:0] _RAND_20;
 `endif // RANDOMIZE_REG_INIT
   wire [31:0] tofixedx0_io_in; // @[VCORDIC.scala 69:33]
   wire [63:0] tofixedx0_io_out; // @[VCORDIC.scala 69:33]
@@ -42,18 +45,21 @@ module VCORDIC(
   reg [63:0] xr_4; // @[VCORDIC.scala 83:27]
   reg [63:0] xr_5; // @[VCORDIC.scala 83:27]
   reg [63:0] xr_6; // @[VCORDIC.scala 83:27]
+  reg [63:0] xr_7; // @[VCORDIC.scala 83:27]
   reg [63:0] yr_1; // @[VCORDIC.scala 84:27]
   reg [63:0] yr_2; // @[VCORDIC.scala 84:27]
   reg [63:0] yr_3; // @[VCORDIC.scala 84:27]
   reg [63:0] yr_4; // @[VCORDIC.scala 84:27]
   reg [63:0] yr_5; // @[VCORDIC.scala 84:27]
   reg [63:0] yr_6; // @[VCORDIC.scala 84:27]
+  reg [63:0] yr_7; // @[VCORDIC.scala 84:27]
   reg [63:0] zr_1; // @[VCORDIC.scala 85:27]
   reg [63:0] zr_2; // @[VCORDIC.scala 85:27]
   reg [63:0] zr_3; // @[VCORDIC.scala 85:27]
   reg [63:0] zr_4; // @[VCORDIC.scala 85:27]
   reg [63:0] zr_5; // @[VCORDIC.scala 85:27]
   reg [63:0] zr_6; // @[VCORDIC.scala 85:27]
+  reg [63:0] zr_7; // @[VCORDIC.scala 85:27]
   wire  cond = $signed(tofixedy0_io_out) < 64'sh0; // @[VCORDIC.scala 112:29]
   wire [63:0] _xterm_T_2 = 64'sh0 - $signed(tofixedx0_io_out); // @[VCORDIC.scala 113:31]
   wire [63:0] xterm = cond ? $signed(_xterm_T_2) : $signed(tofixedx0_io_out); // @[VCORDIC.scala 113:24]
@@ -386,6 +392,62 @@ module VCORDIC(
   wire [63:0] y_24 = $signed(y_23) - $signed(_y_24_T); // @[VCORDIC.scala 118:30]
   wire [63:0] _z_24_T = cond_23 ? _zterm_T_47 : 64'h200; // @[VCORDIC.scala 119:38]
   wire [63:0] z_24 = $signed(z_23) + $signed(_z_24_T); // @[VCORDIC.scala 119:30]
+  wire  cond_24 = $signed(yr_6) < 64'sh0; // @[VCORDIC.scala 101:29]
+  wire [63:0] _xterm_T_74 = 64'sh0 - $signed(xr_6); // @[VCORDIC.scala 103:31]
+  wire [63:0] xterm_24 = cond_24 ? $signed(_xterm_T_74) : $signed(xr_6); // @[VCORDIC.scala 103:24]
+  wire [63:0] _yterm_T_74 = 64'sh0 - $signed(yr_6); // @[VCORDIC.scala 104:31]
+  wire [63:0] yterm_24 = cond_24 ? $signed(_yterm_T_74) : $signed(yr_6); // @[VCORDIC.scala 104:24]
+  wire [63:0] _zterm_T_49 = 64'h0 - 64'h100; // @[VCORDIC.scala 105:31]
+  wire [39:0] _GEN_46 = yterm_24[63:24]; // @[VCORDIC.scala 107:39]
+  wire [63:0] _x_25_T = {{24{_GEN_46[39]}},_GEN_46}; // @[VCORDIC.scala 107:39]
+  wire [63:0] x_25 = $signed(xr_6) + $signed(_x_25_T); // @[VCORDIC.scala 107:30]
+  wire [39:0] _GEN_47 = xterm_24[63:24]; // @[VCORDIC.scala 108:39]
+  wire [63:0] _y_25_T = {{24{_GEN_47[39]}},_GEN_47}; // @[VCORDIC.scala 108:39]
+  wire [63:0] y_25 = $signed(yr_6) - $signed(_y_25_T); // @[VCORDIC.scala 108:30]
+  wire [63:0] _z_25_T = cond_24 ? _zterm_T_49 : 64'h100; // @[VCORDIC.scala 109:38]
+  wire [63:0] z_25 = $signed(zr_6) + $signed(_z_25_T); // @[VCORDIC.scala 109:30]
+  wire  cond_25 = $signed(y_25) < 64'sh0; // @[VCORDIC.scala 112:29]
+  wire [63:0] _xterm_T_77 = 64'sh0 - $signed(x_25); // @[VCORDIC.scala 113:31]
+  wire [63:0] xterm_25 = cond_25 ? $signed(_xterm_T_77) : $signed(x_25); // @[VCORDIC.scala 113:24]
+  wire [63:0] _yterm_T_77 = 64'sh0 - $signed(y_25); // @[VCORDIC.scala 114:31]
+  wire [63:0] yterm_25 = cond_25 ? $signed(_yterm_T_77) : $signed(y_25); // @[VCORDIC.scala 114:24]
+  wire [63:0] _zterm_T_51 = 64'h0 - 64'h80; // @[VCORDIC.scala 115:31]
+  wire [38:0] _GEN_48 = yterm_25[63:25]; // @[VCORDIC.scala 117:39]
+  wire [63:0] _x_26_T = {{25{_GEN_48[38]}},_GEN_48}; // @[VCORDIC.scala 117:39]
+  wire [63:0] x_26 = $signed(x_25) + $signed(_x_26_T); // @[VCORDIC.scala 117:30]
+  wire [38:0] _GEN_49 = xterm_25[63:25]; // @[VCORDIC.scala 118:39]
+  wire [63:0] _y_26_T = {{25{_GEN_49[38]}},_GEN_49}; // @[VCORDIC.scala 118:39]
+  wire [63:0] y_26 = $signed(y_25) - $signed(_y_26_T); // @[VCORDIC.scala 118:30]
+  wire [63:0] _z_26_T = cond_25 ? _zterm_T_51 : 64'h80; // @[VCORDIC.scala 119:38]
+  wire [63:0] z_26 = $signed(z_25) + $signed(_z_26_T); // @[VCORDIC.scala 119:30]
+  wire  cond_26 = $signed(y_26) < 64'sh0; // @[VCORDIC.scala 112:29]
+  wire [63:0] _xterm_T_80 = 64'sh0 - $signed(x_26); // @[VCORDIC.scala 113:31]
+  wire [63:0] xterm_26 = cond_26 ? $signed(_xterm_T_80) : $signed(x_26); // @[VCORDIC.scala 113:24]
+  wire [63:0] _yterm_T_80 = 64'sh0 - $signed(y_26); // @[VCORDIC.scala 114:31]
+  wire [63:0] yterm_26 = cond_26 ? $signed(_yterm_T_80) : $signed(y_26); // @[VCORDIC.scala 114:24]
+  wire [63:0] _zterm_T_53 = 64'h0 - 64'h40; // @[VCORDIC.scala 115:31]
+  wire [37:0] _GEN_50 = yterm_26[63:26]; // @[VCORDIC.scala 117:39]
+  wire [63:0] _x_27_T = {{26{_GEN_50[37]}},_GEN_50}; // @[VCORDIC.scala 117:39]
+  wire [63:0] x_27 = $signed(x_26) + $signed(_x_27_T); // @[VCORDIC.scala 117:30]
+  wire [37:0] _GEN_51 = xterm_26[63:26]; // @[VCORDIC.scala 118:39]
+  wire [63:0] _y_27_T = {{26{_GEN_51[37]}},_GEN_51}; // @[VCORDIC.scala 118:39]
+  wire [63:0] y_27 = $signed(y_26) - $signed(_y_27_T); // @[VCORDIC.scala 118:30]
+  wire [63:0] _z_27_T = cond_26 ? _zterm_T_53 : 64'h40; // @[VCORDIC.scala 119:38]
+  wire [63:0] z_27 = $signed(z_26) + $signed(_z_27_T); // @[VCORDIC.scala 119:30]
+  wire  cond_27 = $signed(y_27) < 64'sh0; // @[VCORDIC.scala 112:29]
+  wire [63:0] _xterm_T_83 = 64'sh0 - $signed(x_27); // @[VCORDIC.scala 113:31]
+  wire [63:0] xterm_27 = cond_27 ? $signed(_xterm_T_83) : $signed(x_27); // @[VCORDIC.scala 113:24]
+  wire [63:0] _yterm_T_83 = 64'sh0 - $signed(y_27); // @[VCORDIC.scala 114:31]
+  wire [63:0] yterm_27 = cond_27 ? $signed(_yterm_T_83) : $signed(y_27); // @[VCORDIC.scala 114:24]
+  wire [63:0] _zterm_T_55 = 64'h0 - 64'h20; // @[VCORDIC.scala 115:31]
+  wire [36:0] _GEN_52 = yterm_27[63:27]; // @[VCORDIC.scala 117:39]
+  wire [63:0] _x_28_T = {{27{_GEN_52[36]}},_GEN_52}; // @[VCORDIC.scala 117:39]
+  wire [63:0] x_28 = $signed(x_27) + $signed(_x_28_T); // @[VCORDIC.scala 117:30]
+  wire [36:0] _GEN_53 = xterm_27[63:27]; // @[VCORDIC.scala 118:39]
+  wire [63:0] _y_28_T = {{27{_GEN_53[36]}},_GEN_53}; // @[VCORDIC.scala 118:39]
+  wire [63:0] y_28 = $signed(y_27) - $signed(_y_28_T); // @[VCORDIC.scala 118:30]
+  wire [63:0] _z_28_T = cond_27 ? _zterm_T_55 : 64'h20; // @[VCORDIC.scala 119:38]
+  wire [63:0] z_28 = $signed(z_27) + $signed(_z_28_T); // @[VCORDIC.scala 119:30]
   Float32ToFixed64 tofixedx0 ( // @[VCORDIC.scala 69:33]
     .io_in(tofixedx0_io_in),
     .io_out(tofixedx0_io_out)
@@ -414,9 +476,9 @@ module VCORDIC(
   assign tofixedx0_io_in = 32'h3f800000; // @[VCORDIC.scala 73:19]
   assign tofixedy0_io_in = io_in_y0; // @[VCORDIC.scala 74:19]
   assign tofixedz0_io_in = 32'h0; // @[VCORDIC.scala 75:19]
-  assign tofloatxout_io_in = xr_6; // @[VCORDIC.scala 135:33]
-  assign tofloatyout_io_in = yr_6; // @[VCORDIC.scala 136:33]
-  assign tofloatzout_io_in = zr_6; // @[VCORDIC.scala 137:33]
+  assign tofloatxout_io_in = xr_7; // @[VCORDIC.scala 135:33]
+  assign tofloatyout_io_in = yr_7; // @[VCORDIC.scala 136:33]
+  assign tofloatzout_io_in = zr_7; // @[VCORDIC.scala 137:33]
   always @(posedge clock) begin
     if (reset) begin // @[VCORDIC.scala 83:27]
       xr_1 <= 64'sh0; // @[VCORDIC.scala 83:27]
@@ -448,6 +510,11 @@ module VCORDIC(
     end else begin
       xr_6 <= x_24; // @[VCORDIC.scala 123:18]
     end
+    if (reset) begin // @[VCORDIC.scala 83:27]
+      xr_7 <= 64'sh0; // @[VCORDIC.scala 83:27]
+    end else begin
+      xr_7 <= x_28; // @[VCORDIC.scala 123:18]
+    end
     if (reset) begin // @[VCORDIC.scala 84:27]
       yr_1 <= 64'sh0; // @[VCORDIC.scala 84:27]
     end else begin
@@ -478,6 +545,11 @@ module VCORDIC(
     end else begin
       yr_6 <= y_24; // @[VCORDIC.scala 124:18]
     end
+    if (reset) begin // @[VCORDIC.scala 84:27]
+      yr_7 <= 64'sh0; // @[VCORDIC.scala 84:27]
+    end else begin
+      yr_7 <= y_28; // @[VCORDIC.scala 124:18]
+    end
     if (reset) begin // @[VCORDIC.scala 85:27]
       zr_1 <= 64'sh0; // @[VCORDIC.scala 85:27]
     end else begin
@@ -507,6 +579,11 @@ module VCORDIC(
       zr_6 <= 64'sh0; // @[VCORDIC.scala 85:27]
     end else begin
       zr_6 <= z_24; // @[VCORDIC.scala 125:18]
+    end
+    if (reset) begin // @[VCORDIC.scala 85:27]
+      zr_7 <= 64'sh0; // @[VCORDIC.scala 85:27]
+    end else begin
+      zr_7 <= z_28; // @[VCORDIC.scala 125:18]
     end
   end
 // Register and memory initialization
@@ -558,29 +635,35 @@ initial begin
   _RAND_5 = {2{`RANDOM}};
   xr_6 = _RAND_5[63:0];
   _RAND_6 = {2{`RANDOM}};
-  yr_1 = _RAND_6[63:0];
+  xr_7 = _RAND_6[63:0];
   _RAND_7 = {2{`RANDOM}};
-  yr_2 = _RAND_7[63:0];
+  yr_1 = _RAND_7[63:0];
   _RAND_8 = {2{`RANDOM}};
-  yr_3 = _RAND_8[63:0];
+  yr_2 = _RAND_8[63:0];
   _RAND_9 = {2{`RANDOM}};
-  yr_4 = _RAND_9[63:0];
+  yr_3 = _RAND_9[63:0];
   _RAND_10 = {2{`RANDOM}};
-  yr_5 = _RAND_10[63:0];
+  yr_4 = _RAND_10[63:0];
   _RAND_11 = {2{`RANDOM}};
-  yr_6 = _RAND_11[63:0];
+  yr_5 = _RAND_11[63:0];
   _RAND_12 = {2{`RANDOM}};
-  zr_1 = _RAND_12[63:0];
+  yr_6 = _RAND_12[63:0];
   _RAND_13 = {2{`RANDOM}};
-  zr_2 = _RAND_13[63:0];
+  yr_7 = _RAND_13[63:0];
   _RAND_14 = {2{`RANDOM}};
-  zr_3 = _RAND_14[63:0];
+  zr_1 = _RAND_14[63:0];
   _RAND_15 = {2{`RANDOM}};
-  zr_4 = _RAND_15[63:0];
+  zr_2 = _RAND_15[63:0];
   _RAND_16 = {2{`RANDOM}};
-  zr_5 = _RAND_16[63:0];
+  zr_3 = _RAND_16[63:0];
   _RAND_17 = {2{`RANDOM}};
-  zr_6 = _RAND_17[63:0];
+  zr_4 = _RAND_17[63:0];
+  _RAND_18 = {2{`RANDOM}};
+  zr_5 = _RAND_18[63:0];
+  _RAND_19 = {2{`RANDOM}};
+  zr_6 = _RAND_19[63:0];
+  _RAND_20 = {2{`RANDOM}};
+  zr_7 = _RAND_20[63:0];
 `endif // RANDOMIZE_REG_INIT
   `endif // RANDOMIZE
 end // initial

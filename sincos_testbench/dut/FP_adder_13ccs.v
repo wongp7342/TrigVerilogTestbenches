@@ -389,7 +389,7 @@ module FP_adder_13ccs(
     .io_out_s(subber_io_out_s),
     .io_out_c(subber_io_out_c)
   );
-  full_adder_6 adder ( // @[FloatingPointDesigns.scala 1467:23]
+  full_adder_3 adder ( // @[FloatingPointDesigns.scala 1467:23]
     .io_in_a(adder_io_in_a),
     .io_in_b(adder_io_in_b),
     .io_out_s(adder_io_out_s),
